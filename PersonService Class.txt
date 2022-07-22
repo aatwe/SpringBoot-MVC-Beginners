@@ -1,0 +1,24 @@
+package com.example.demo.service;
+
+@Service or @Component
+public class PersonService {
+
+   private final PersonDao personDao;	
+
+@Autowired								//Injecting into the actual constructor  //Autowiring into the interface PersonService
+   public PersonService(@Qualifier("fakeDao") PersonDao personDao) {		//pass personDao object    //multiple implementation of interface, hence need way to distinguish bw them
+     this.personDao = personDao;									@Qualifier does that
+}
+									 //Just change @Qualifier("mongo") when we have mongodb implementation
+   public int addPerson(Person person)  {
+     return  personDao.insertPerson(person);
+}
+
+public List <Person> getAllPeople() {
+    return personDao.selectAllPeople();
+}
+
+public Optional<Person> getPersonById(UVID id)  {
+  return personDao.selectPersonById(id);
+}
+}

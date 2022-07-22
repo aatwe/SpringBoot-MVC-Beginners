@@ -1,0 +1,28 @@
+import com.exapmle.demo.model.Person
+import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.service.PersonService;
+
+@RequestMapping("api/v1/person'")
+@RestController 			//this class gives us some methods which can expose endpoints that clients can consume
+public class PersonController {
+   private final PersonService personService;
+  
+   @Autowired
+   public PersonController(PersonService personService)  {
+	this.personService = personService
+
+}
+
+@PostMapping						//This annotation tells spring that this method will be used as post request
+public void addPerson(@RequestBody Person person)  {			//Have to serve this method as post request //@RequestBody will receive the JSON Payload and convert into person
+  personService.addPerson(person);				//GET: Retrieve data from server  POST: Add resource to server PUT : Modify  DELETE: Delete resource from server
+} 
+
+@GetMapping						//Have to serve this method as a get request
+public List<Person> getAllPeople() {
+    return personService.getAllPeople();
+}
+
+}
+
+}

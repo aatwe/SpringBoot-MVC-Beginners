@@ -1,0 +1,4 @@
+Open the zip file via IntelliJ POM.xml
+
+POM.xml contains all the configurations we did to bootstrap
+can check the dependency in <dependency>  </dependency>

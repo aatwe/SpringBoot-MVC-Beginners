@@ -1,0 +1,14 @@
+sec -> main -> java -> com.example.demo -> DemoApplication
+
+//This is how we run spring application
+
+ @SpringbootApplication
+public class DemoApplication {
+
+   public static void main(String[] args) {
+	SpringApplication.run(DemoApplication.class, args);
+	}
+}
+
+Run The Application: Get Spring output
+Tomcat Started on port 8080

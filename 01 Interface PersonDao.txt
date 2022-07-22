@@ -1,0 +1,22 @@
+//This is the iterface 
+  //What is defined here? actual operations allowed /actual contract for anyone that wishes to 				implement this interface
+
+  //Later we will use Dependency Injection to switch between implementations 
+	//with just 1 line of code
+
+public interface PersonDao {
+    int insertPerson(UVID id, Person person);	//M1 to insert person with id
+
+  default int  insertPerson(Person person) {	//M2 to insert person without id
+   UVID id = UVID.randomUVID();		//ID is randomly generated
+   return insertPerson(id, person);
+
+}
+   List<Person> selectAllPeople(); 
+ 
+ Optional<Person> selectPersonById(UVID id)
+
+  int deletePersonById(UVID id);
+  
+  int updatePersonById(UVID id, Person person)
+}

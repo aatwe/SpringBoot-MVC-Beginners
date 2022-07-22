@@ -1,0 +1,38 @@
+Spring initializer
+start.spring.io
+
+What does this website do? He;ps to bootstreap our applications
+
+Botstrap? Picking dependencies, Configuring actual project
+
+Project          -> Maven     or     Gradle
+Language     -> Java     or    Kotlin    or    Groovy
+Springboot   ->  2.17 (>2)
+
+Project MetaData: According to your company/project name
+
+Java: 11 or 8 version
+
+Dependencies:
+	Why Springboot is best java framework? Lots of flexibilities with dependencies
+		Can install a dependency and start coding right away.
+
+Ex of Spring Dependencies Categories : 
+	We focuson web: Spring server web Starter
+	   with spring MVC and TOMCAT  
+	
+	Other categories
+	Web
+	Template Engines,
+	Security : Configure security within your applications
+	SQL : MySQL, JDBC, Postgres , Flyaway for DB migration ,MongoDB
+	NoSQL
+	Messaging
+	I/O
+	Spring Cloud
+	Spring Cloud Security
+	Spring Cloud Tools
+
+-> Generate Project
+		
+		

@@ -1,0 +1,2 @@
+Platform to build backend Java applications
+Can also build web applications	

@@ -1,0 +1,46 @@
+
+package com.example.demo.dao;
+import com.example.demo.model.Person;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UVID;
+
+@Repository("fakeDao")  //we tell spring that this class needs to be instantiated as a bean  //Check personSpring class   //allows us to have mutliple implementations
+   or												      //when we have a mongodb implmentation -> in Person service class write 
+@Component  //also works //upper one just confirms that this class works as a repository			      //@Qualifier("mongo")
+
+public class  FakePersonDataAccessService implements PersonDao {  //rightclick implement and below code will come
+
+//Define our List of person
+  private static List<Person> DB = new ArrayList<>(); 		//to insert a person we have to add him to database DB
+
+@Override
+  public int insertPerson(UVID id, Person person) {
+     DB.add(new Person(id, person.getName()));
+     return 1;
+}
+@Override						//Right click implements FakePersonDataaccessService -> selectAllPeoples() List<Person>
+public List<Person> selectAllPeople() {
+  return DB;						//Return the DB to test
+}
+}
+
+@Override
+public Optional<Person> selectPersonById(UVID id) {
+   return DB.stream()		//we use java streams to search in our db 
+               .filter(person -> person.getId().equals(id))
+               .findFirst();
+}
+
+@Override
+oublic int deletePersonByI(UVID id) 
+{
+   return 0;
+}
+
+@Override{
+  public int updatePersonById(UVID id. Person person) {
+   return 0;
+}
+}

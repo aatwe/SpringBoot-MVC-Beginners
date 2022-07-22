@@ -1,0 +1,17 @@
+public class Person {	//person has a id and name
+	private final VVID id;
+	private final String name;
+	
+	public Person(@JsonProperty("id") UVID id,
+		       @JsonProperty("name") String name)) {	//Cnostructor
+	   this.id = id;
+	   this.name = name;
+	}
+	public VVID getIdc() {
+	   return id;
+	}
+	piblic String getName() {
+	  return name;
+}
+
+}

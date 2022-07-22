@@ -1,0 +1,74 @@
+1) Download Postman  -> allows to serve as a client
+			when we dont have any react app etc we can use post man 
+			as a client
+
+2) We will send a person to our server
+	POST -  localhost:8080/api/v1/person
+
+3) Body -> Raw -> Send JSON
+
+   {
+     "name" : "James Bond"			//this should match the property we add below
+      					//we are not passing id because id is generated from the server
+}					//This is Json Payload
+
+Have to define these properties in our Pojo
+	When we send this json spring should know to take these properties and convert 
+	into java class
+
+Go to Model -> Person -> 
+	public Person(@JsonProperty("id") UVID id,
+		       @JsonProperty("name") String name)				)
+
+How to check if we are receiving Json payload from the actual body?
+
+Personcontroller ->@ Postmapping add @RequestBody
+
+4) Run the ApplicationS
+Tomcat starts at port 8080
+
+Send request from Postman
+Check status: 200 means Ok -> means request went fine
+
+5) how to test this? we dont have an endpoint to retrieve people from DB
+How to retrieve people from DB?
+
+dao -> PersonDao -> 
+   List<Person> selectAllPeople(); 
+
+After adding all this and @GetMapping List
+
+6) Run the server again-> Server starts on Port 8080
+	Postman -> Send JSON POST Request
+
+	Postmant ->Send 	       GET Request to same url
+
+we het
+
+	{
+	  "id" : "efadced-8e9d-4269-9d06-b397122bbf49"
+	  "name" : "James Bond"
+}  	//We have an array with 1 person that comes from our Database
+
+Try Posting
+{
+  "name"  "Anna Jones"
+}
+Try GET Request to server
+we get 2 people
+
+{
+	  "id" : "efadced-8e9d-4269-9d06-b3971212349"
+	  "name" : "Anna Joness"
+  	//We have an array with 2 person that comes from our Database
+}
+
+7) how to update and delete person now?
+Define methods in dao 
+Optional<Person> selectPersonById(UVID id)
+
+  int deletePersonById(UVID id);
+  
+  int updatePersonById(UVID id, Person person)
+
+Implement methods in fakepersonDataAccessSService

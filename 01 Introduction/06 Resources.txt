@@ -1,0 +1,4 @@
+Folders
+static -> Where  All web resources live for web applications
+templates -> all templates for the web applications
+application.properties -> can define different properties for demo,test,production 		           environment

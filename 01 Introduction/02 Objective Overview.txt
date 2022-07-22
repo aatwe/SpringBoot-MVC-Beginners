@@ -1,0 +1,16 @@
+IOS App/React/Android App   //Client Submits the request
+     |
+Request      Response to the client	//Response = JSON Payload/Image/Status code etc
+      |             A
+     V             |
+API Layer/ Controller Layer	  //in here can specify HTTP, GET, POST,DELETE,PUT methods
+      |             |
+Service layer		  //Business Logic within application
+      |             |
+Data Access Layer  		  //Database//This database can perform some crud operations
+      |             |		  //This layer helps to connect to any database of choice
+In Memory DB
+
+		//Springboot feature? Dependency Injection
+		Can start with implementation and if later need to change DB
+		can just change one line of code
